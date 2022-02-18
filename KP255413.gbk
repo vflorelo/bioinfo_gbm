@@ -1,0 +1,66 @@
+LOCUS       KP255413                 446 bp    DNA     linear   PRI 04-MAY-2015
+DEFINITION  Homo sapiens isolate TWH87101 truncated breast and ovarian cancer
+            susceptibility protein 2 (BRCA2) gene, exon 25 and partial cds.
+ACCESSION   KP255413
+VERSION     KP255413.1  GI:815932512
+KEYWORDS    .
+SOURCE      Homo sapiens (human)
+  ORGANISM  Homo sapiens
+            Eukaryota; Metazoa; Chordata; Craniata; Vertebrata; Euteleostomi;
+            Mammalia; Eutheria; Euarchontoglires; Primates; Haplorrhini;
+            Catarrhini; Hominidae; Homo.
+REFERENCE   1  (bases 1 to 446)
+  AUTHORS   Kwong,A., Shin,V.Y., Ho,J.C.W., Law,F.B.F., Au,T., Chan,T.L. and
+            Ma,E.S.K.
+  CONSRTM   The Hong Kong Hereditary Breast Cancer Family Registry
+  TITLE     Full spectrum of BRCA1 and BRCA2 deleterious mutations in breast
+            cancer in Asian countries
+  JOURNAL   Unpublished
+REFERENCE   2  (bases 1 to 446)
+  AUTHORS   Kwong,A., Shin,V.Y., Ho,J.C.W., Law,F.B.F., Au,T., Chan,T.L. and
+            Ma,E.S.K.
+  CONSRTM   The Hong Kong Hereditary Breast Cancer Family Registry
+  TITLE     Direct Submission
+  JOURNAL   Submitted (09-DEC-2014) Breast Surgery Division, The University of
+            Hong Kong, Queen Mary Hospital, Pokfulam, Hong Kong, Hong Kong
+FEATURES             Location/Qualifiers
+     source          1..446
+                     /organism="Homo sapiens"
+                     /mol_type="genomic DNA"
+                     /isolate="TWH87101"
+                     /db_xref="taxon:9606"
+                     /chromosome="13"
+                     /country="Hong Kong"
+     gene            1..446
+                     /gene="BRCA2"
+     mRNA            129..372
+                     /gene="BRCA2"
+                     /product="truncated breast and ovarian cancer
+                     susceptibility protein 2"
+     exon            129..372
+                     /gene="BRCA2"
+                     /number=25
+     CDS             <129..358
+                     /gene="BRCA2"
+                     /note="mutation results in early stop codon"
+                     /codon_start=3
+                     /product="truncated breast and ovarian cancer
+                     susceptibility protein 2"
+                     /protein_id="AKE50591.1"
+                     /db_xref="GI:815932513"
+                     /translation="LAPFVYLSDECYNLLAIKFWIDLNEDIIKPHMLIAASNLQWRPE
+                     SKSAFLLYLLEIFLCFLLVQKRATFKRHSTK"
+     variation       272^273
+                     /gene="BRCA2"
+                     /replace="g"
+ORIGIN      
+        1 ctattttgat ttgcttttat tattagcata taccaaaata aataggcata ttagagtttc
+       61 ctttcttgca tcttaaaatt catctaacac atctataata acattctttt cttttttttc
+      121 cattctagga cttgcccctt tcgtctattt gtcagacgaa tgttacaatt tactggcaat
+      181 aaagttttgg atagacctta atgaggacat tattaagcct catatgttaa ttgctgcaag
+      241 caacctccag tggcgaccag aatccaaatc agccttctta ctttatttgc tggagatttt
+      301 tctgtgtttt ctgctagtcc aaaagagggc cactttcaag agacattcaa caaaatgaaa
+      361 aatactgttg aggtaaggtt acttttcagc atcaccacac attttggtat ttttctattt
+      421 tgacagtcca gtatcaagga aatagc
+//
+

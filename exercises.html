@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="js/jquery-3.6.0.min.js" ></script>
+  <script src="js/bootstrap.min.js" ></script>
+  <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
+  <link rel="stylesheet" href="css/bootstrap-icons.css  " type="text/css" />
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <title>.:Departamento de Genética y Biología Molecular:. .:Bioinformática 2022:.</title>
+</head>
+<body>
+<div class="col-8 offset-2">
+  <div class="card mb-3">
+    <div class="card-header bg-info text-white fs-2 text-center" name="intro" id="intro">Ejercicios para evaluación</div>
+    <div class="card-body">
+      <div class="alert alert-info fs-3">Aspectos a evaluar:
+        <div class="list-group fs-4">
+          <a href="#blast" class="list-group-item list-group-item-primary">Comparación de secuencias</a>
+          <a href="#rest"  class="list-group-item list-group-item-danger">Búsqueda de sitios de restricción</a>
+          <a href="#motif" class="list-group-item list-group-item-success">Búsqueda de motifs</a>
+        </div>
+      </div>
+      <div class="alert alert-info fs-3">Indicaciones:
+        <ul class="list-group">
+          <li class="list-group-item list-group-item">Deberás envíar tus respuestas en un documento PDF con formato libre con tu nombre, no se aceptarán documentos en formato .doc o .docx o algún otro</li>
+          <li class="list-group-item list-group-item">Para cada sección y las preguntas correspondientes, deberás indicar qué secuencias (o vectores, o sets) elegiste</li>
+          <li class="list-group-item list-group-item">En las secciones donde se pregunte acerca de secuencias o motifs ya reportados, incluye el número de acceso de dichos elementos</li>
+          <li class="list-group-item list-group-item">No dudes en consultar con tus compañeros, o a mi <a href="mailto:vf281@cam.ac.uk" target="_top">correo electrónico</a> para aclarar cualquier tipo de duda</li>
+          <li class="list-group-item list-group-item">La fecha límite de entrega es el viernes 25 de febrero</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="card mb-3">
+    <div class="card-header bg-primary text-white fs-2" name="blast" id="blast">Comparación de secuencias <a class="link" href="#intro"><span class="bi bi-arrow-up-circle-fill text-white"></span></a></div>
+    <div class="card-body fs-3">A continuación se mostrarán 18 secuencias, descarga una (o más) de ellas y realiza los pasos que consideres necesarios para resolver las siguientes preguntas
+      <div class="row">
+        <div class="col-8">
+          <select class="form-select fs-4" onchange="toggle_file_source('unknown_sequence',this.value)">
+            <option value="" >Elige una secuencia</option>
+            <option value="unknown_1.fasta"  >Secuencia 1</option>
+            <option value="unknown_2.fasta"  >Secuencia 2</option>
+            <option value="unknown_3.fasta"  >Secuencia 3</option>
+            <option value="unknown_4.fasta"  >Secuencia 4</option>
+            <option value="unknown_5.fasta"  >Secuencia 5</option>
+            <option value="unknown_6.fasta"  >Secuencia 6</option>
+            <option value="unknown_7.fasta"  >Secuencia 7</option>
+            <option value="unknown_8.fasta"  >Secuencia 8</option>
+            <option value="unknown_9.fasta"  >Secuencia 9</option>
+            <option value="unknown_10.fasta" >Secuencia 10</option>
+            <option value="unknown_11.fasta" >Secuencia 11</option>
+            <option value="unknown_12.fasta" >Secuencia 12</option>
+            <option value="unknown_13.fasta" >Secuencia 13</option>
+            <option value="unknown_14.fasta" >Secuencia 14</option>
+            <option value="unknown_15.fasta" >Secuencia 15</option>
+            <option value="unknown_16.fasta" >Secuencia 16</option>
+            <option value="unknown_17.fasta" >Secuencia 17</option>
+            <option value="unknown_18.fasta" >Secuencia 18</option>
+          </select>
+        </div>
+        <div class="col-4">
+          <a id="unknown_sequence" name="unknown_sequence" style="display: none">
+            Descargar <span class="bi bi-cloud-arrow-down fs-5"></span>
+          </a>
+        </div>
+      </div>
+      <div class="alert alert-primary fs-3">Preguntas:
+        <ul class="list-group fs-4">
+          <li class="list-group-item">A que organismo probablemente pertenece la secuencia que elegiste?</li>
+          <li class="list-group-item">La secuencia que elegiste, codifica para algúna proteína? Cúal?</li>
+          <li class="list-group-item">Cuantas secuencias similares hay en bases de datos?</li>
+          <li class="list-group-item">Excluyendo al organismo al cual probablemente pertenezca dicha secuencia, cuantas secuencias hay en bases de datos?</li>
+          <li class="list-group-item">La secuencia que elegiste, tiene homólogos en humano? De ser así, indica el o los cromosomas y posiciones de los homólogos</li>
+          <li class="list-group-item">Si tu secuencia es codificante, cúal es el homólogo más cercano a nivel de proteína en el linaje de los mamiferos?</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="card mb-3">
+    <div class="card-header bg-danger text-white fs-2 text-center" name="rest" id="rest">Restricción enzimática
+      <a class="link" href="#intro">
+        <span class="bi bi-arrow-up-circle-fill text-white"></span>
+      </a>
+    </div>
+    <div class="card-body fs-3">En esta sección deberas elegir dos secuencias, una correspondiente a un vector de clonación y una correspondiente a una secuencia desconocida
+      <div class="row">
+        <div class="col-3">
+          <select class="form-select fs-4" onchange="toggle_file_source('cloning_vector',this.value)">
+            <option value="" >Elige un vector</option>
+            <option value="pASK75.fasta">pASK75</option>
+            <option value="pBAD-HisA.fasta">pBAD-HisA</option>
+            <option value="pET-3arev.fasta">pET-3arev</option>
+            <option value="pETM11-SUMO3GFP.fasta">pETM11-SUMO3GFP</option>
+            <option value="pGAT.fasta">pGAT</option>
+            <option value="PGEX-3X.fasta">PGEX-3X</option>
+            <option value="pHAT.fasta">pHAT</option>
+            <option value="pMAL-P2.fasta">pMAL-P2</option>
+            <option value="pProEx-HTa.fasta">pProEx-HTa</option>
+            <option value="pRSET-C.fasta">pRSET-C</option>
+          </select>
+        </div>
+        <div class="col-3">
+          <a id="cloning_vector" name="cloning_vector" style="display: none">
+            Descargar <span class="bi bi-cloud-arrow-down fs-5"></span>
+          </a>
+        </div>
+        <div class="col-3">
+          <select class="form-select fs-4" onchange="toggle_file_source('unknown_sequence_2',this.value)">
+            <option value="" >Elige una secuencia</option>
+            <option value="unknown_19.fasta" >Secuencia 19</option>
+            <option value="unknown_20.fasta" >Secuencia 20</option>
+            <option value="unknown_21.fasta" >Secuencia 21</option>
+            <option value="unknown_22.fasta" >Secuencia 22</option>
+            <option value="unknown_23.fasta" >Secuencia 23</option>
+            <option value="unknown_24.fasta" >Secuencia 24</option>
+            <option value="unknown_25.fasta" >Secuencia 25</option>
+            <option value="unknown_26.fasta" >Secuencia 26</option>
+            <option value="unknown_27.fasta" >Secuencia 27</option>
+            <option value="unknown_28.fasta" >Secuencia 28</option>
+            <option value="unknown_29.fasta" >Secuencia 29</option>
+            <option value="unknown_30.fasta" >Secuencia 30</option>
+            <option value="unknown_31.fasta" >Secuencia 31</option>
+            <option value="unknown_32.fasta" >Secuencia 32</option>
+            <option value="unknown_33.fasta" >Secuencia 33</option>
+            <option value="unknown_34.fasta" >Secuencia 34</option>
+            <option value="unknown_35.fasta" >Secuencia 35</option>
+          </select>
+        </div>
+        <div class="col-3">
+          <a id="unknown_sequence_2" name="unknown_sequence_2" style="display: none">
+            Descargar <span class="bi bi-cloud-arrow-down fs-5"></span>
+          </a>
+        </div>
+      </div>
+      <div class="alert alert-danger fs-3">Preguntas:
+        <ul class="list-group">
+          <li class="list-group-item">De qué organismo proviene tu secuencia? Qué codifica?</li>
+          <li class="list-group-item">Tu vector tiene un sitio de clonación múltiple? Qué enzimas contiene?</li>
+          <li class="list-group-item">Qué enzimas de restricción eligirías para clonar tu secuencia en el vector que escogiste?</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="card mb-3">
+    <div class="card-header bg-success text-white fs-2 text-center" name="motif" id="motif">Búsqueda de motifs <a class="link" href="#intro"><span class="bi bi-arrow-up-circle-fill text-white"></span></a> </div>
+    <div class="card-body fs-3">En esta sección deberas elegir uno o más datos de ChIP-Seq
+      <div class="row">
+        <div class="col-8">
+          <select class="form-select fs-4" onchange="toggle_file_source('chip_seq',this.value)">
+            <option value="" >Elige un dataset</option>
+            <option value="chipseq_1.fasta"  >Set 1</option>
+            <option value="chipseq_2.fasta"  >Set 2</option>
+            <option value="chipseq_3.fasta"  >Set 3</option>
+            <option value="chipseq_4.fasta"  >Set 4</option>
+            <option value="chipseq_5.fasta"  >Set 5</option>
+            <option value="chipseq_6.fasta"  >Set 6</option>
+            <option value="chipseq_7.fasta"  >Set 7</option>
+            <option value="chipseq_8.fasta"  >Set 8</option>
+            <option value="chipseq_9.fasta"  >Set 9</option>
+            <option value="chipseq_10.fasta" >Set 10</option>
+          </select>
+        </div>
+        <div class="col-4">
+          <a id="chip_seq" name="chip_seq" style="display: none">
+            Descargar <span class="bi bi-cloud-arrow-down fs-5"></span>
+          </a>
+        </div>
+      </div>
+      <div class="alert alert-success fs-3">Usando las herramientas MEME
+        <a class="link" href="http://meme-suite.org/tools/meme" target="_blank">
+          <span class="bi bi-arrow-up-right-circle-fill"></span></a>, MAST
+        <a class="link" href="http://meme-suite.org/tools/mast" target="_blank">
+          <span class="bi bi-arrow-up-right-circle-fill"></span></a> y TOMTOM
+        <a class="link" href="http://meme-suite.org/tools/tomtom" target="_blank">
+          <span class="bi bi-arrow-up-right-circle-fill"></span></a> contesta las siguientes preguntas:
+        <ul class="list-group">
+          <li class="list-group-item">Cuantos motifs hay en el set que elegiste?</li>
+          <li class="list-group-item">Cúal es el e-value del motif mejor representado en tu set? Cúal es la secuencia consenso?</li>
+          <li class="list-group-item">De los motifs encontrados en tu set, hay algúno que se parezca a un motif previamente reportado? A cúal?</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+<script>
+function toggle_file_source(target,filename){
+  (filename == "")? $("#"+target).css("display", "none") : $("#"+target).css("display","");
+  $("#"+target).attr("href","exercises/" + filename);
+  $("#"+target).attr("download",filename);
+  }
+</script>
+</html>

@@ -1,0 +1,238 @@
+<!doctype html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="js/jquery-3.6.0.min.js" ></script>
+  <script src="js/bootstrap.min.js" ></script>
+  <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
+  <link rel="stylesheet" href="css/bootstrap-icons.css  " type="text/css" />
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <title>.:Departamento de Genética y Biología Molecular:. .:Bioinformática 2022:.</title>
+</head>
+<body>
+<div class="col-8 offset-2">
+  <div class="card mb-3" id="intro">
+    <div class="card-header bg-primary text-white fs-2 text-center">Datos biológicos, almacenamiento y distribución</div>
+    <div class="card-body">
+      <p class="fs-3">Una parte importante de la bioinformatica consiste en el almacenamiento y distribucion de los datos biologicos obtenidos experimentalmente.</p>
+      <p class="fs-3">Las bases de datos biologicos por lo general resultan de esfuerzos colaborativos entre distintas instituciones, las cuales reciben datos provenientes de diversos grupos de investigacion, realizan procesos de revision y curacion, y finalmente liberan dichos datos al publico con la finalidad de que el conocimiento generado a partir de dichos datos este disponible de forma gratuita.</p>
+      <p class="fs-3">Anteriormente, los datos generados podian ser almacenados en pequenos servidores, e incluso algunas bases de datos eran distribuidas en formato impreso o en unidades opticas (CDs). Actualmente los datos biologicos depositados en bases de datos son sumamente grandes, y esto ha traido la necesidad de centralizar los datos.</p>
+    </div>
+  </div>
+  <div class="card mb-3" id="formats">
+    <div class="card-header bg-success text-white fs-2 text-center">En que formatos puedo obtener datos biológicos</div>
+    <div class="card-body">
+      <div class="row mb-3">
+        <div class="col-4 d-flex align-items-stretch">
+          <div class="card">
+            <div class="card-header bg-secondary text-white fs-3 text-center">Formatos</div>
+            <div class="card-body">
+              <p class="fs-4">Las secuencias biologicas albergan informacion por si mismas, sin embargo, en el mundo real, nosotros no podemos hacer mucho sentido de una tira de caracteres. Para ello se han disenado cientos de formatos en los que podemos representar nuestras secuencias</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-4 d-flex align-items-stretch">
+          <div class="card">
+            <div class="card-header bg-danger text-white fs-3 text-center">Sin formato</div>
+            <div class="card-body">
+              <p class="fs-4">Las secuencias almacenadas en formato <i>raw</i> (crudo, sin formato) unicamente cuentan con la informacion de la secuencia, no es particularmente util si manejamos muchos datos de forma simultanea.</p>
+            </div>
+            <div class="card-footer">
+              <button type="button" class="btn btn-danger" id="raw_example" name="raw_example" onclick="show_format('raw')">Ejemplo</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-4 d-flex align-items-stretch">
+          <div class="card">
+            <div class="card-header bg-warning text-white fs-3 text-center">Formato fasta</div>
+            <div class="card-body">
+              <p class="fs-4">El formato fasta consta de un <b>header</b> en la primera linea, en el cual podemos almacenar <b>meta</b> informacion de la secuencia, es decir, informacion de la informacion.</p>
+            </div>
+            <div class="card-footer">
+              <button type="button" class="btn btn-warning" id="fasta_example" name="fasta_example" onclick="show_format('fasta')">Ejemplo</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-4 d-flex align-items-stretch">
+          <div class="card">
+            <div class="card-header bg-info text-white fs-3 text-center">Formato GenBank</div>
+            <div class="card-body">
+              <p class="fs-4">El formato GenBank, incluye una tabla de definiciones donde la meta informacion es extensa, por lo cual, los archivos con este formato suelen ser voluminosos.</p>
+            </div>
+            <div class="card-footer">
+              <button type="button" class="btn btn-info" id="gb_example" name="gb_example" onclick="show_format('gbk')">Ejemplo</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-4 d-flex align-items-stretch">
+          <div class="card">
+            <div class="card-header bg-primary text-white fs-3 text-center">Formato EMBL</div>
+            <div class="card-body">
+              <p class="fs-4">El formato EMBL es similar al formato GenBank en que incluye una tabla de definiciones, sin embargo, es mas conciso en sus encabezados.</p>
+            </div>
+            <div class="card-footer">
+              <button type="button" class="btn btn-primary" id="embl_example" name="embl_example" onclick="show_format('embl')">Ejemplo</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-4 d-flex align-items-stretch">
+          <div class="card">
+            <div class="card-header bg-success text-white fs-3 text-center">Formato GFF</div>
+            <div class="card-body">
+              <p class="fs-4">El formato GFF es ampliamente utilizado para el almacenamiento de anotaciones de secuencias que van desde 1 nucleótido hasta genomas eucarioticos completos</p>
+            </div>
+            <div class="card-footer">
+              <button type="button" class="btn btn-success" id="gff_example" name="gff_example" onclick="show_format('gff')">Ejemplo</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card mb-3" id="format_warning">
+    <div class="card-header bg-warning text-white fs-2 text-center">Qué formato debo elegir?</div>
+    <div class="card-body">
+      <p class="fs-3">La eleccion del formato muchas veces la dictamina el tipo de herramientas que vayamos a ocupar, por ejemplo, un programa para alinear secuencias, dificilmente acepta formato GenBank o EMBL, pero no tiene problemas para leer <i>raw</i> o fasta.</p>
+      <p class="fs-3">Por otro lado, un visualizador de genomas, no nos mostrara ningun elemento si le cargamos un archivo en formato <i>raw</i> o fasta, pero nos mostrara detalles muy especificos si le cargamos un archivo en formato GenBank o EMBL.</p>
+      <div class="alert alert-success fs-3 text-center">Podemos obtener una secuencia en formato fasta o raw a partir de un archivo GenBank o EMBL, pero no al reves.</div>
+    </div>
+  </div>
+  <div class="card mb-3" id="seq_storage">
+    <div class="card-header bg-info text-white fs-2 text-center">Almacenamiento</div>
+    <div class="card-body">
+      <p class="fs-3">La informacion contenida en las secuencias (independientemente de su formato) es muy sensible, como vimos en el ejemplo anterior, el cambio de un solo caracter afecta la funcion de un gen, de su proteina y consecuentemente del organismo que tiene dicho cambio.</p>
+      <p class="fs-3">Por esta razon, debemos emplear programas adecuados para el manejo de secuencias biologicas.</p>
+      <div class="accordion accordion-flush" id="storage_accordion">
+        <div class="accordion-item">
+          <div class="accordion-header" id="handwrite"><button class="accordion-button collapsed fs-3 text-danger" type="button" data-bs-toggle="collapse" data-bs-target="#handwrite_content" aria-expanded="false" aria-controls="handwrite_content">Puedo almacenar mis secuencias escribiendolas a mano?</button></div>
+          <div id="handwrite_content" class="accordion-collapse collapse" aria-labelledby="handwrite" data-bs-parent="#storage_accordion"><div class="accordion-body fs-3">No. Dificilmente podemos escribir a mano una secuencia que mida mas de 1000 caracteres, las secuencias manejadas actualmente miden más de 10<sup>9</sup> caracteres.</div></div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="msword"><button class="accordion-button collapsed fs-3 text-warning" type="button" data-bs-toggle="collapse" data-bs-target="#msword_content" aria-expanded="false" aria-controls="msword_content">Puedo almacenar mis secuencias usando MS-Word?</button></h2>
+          <div id="msword_content" class="accordion-collapse collapse" aria-labelledby="msword" data-bs-parent="#storage_accordion"><div class="accordion-body fs-3">No. Los procesadores de texto como MS-Word, LibreOffice Writer y similares, agregan caracteres que no vemos, pero que pueden afectar nuestra secuencia y a su manejo en programas subsecuentes</div></div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="plaintext"><button class="accordion-button collapsed fs-3 text-primary" type="button" data-bs-toggle="collapse" data-bs-target="#plaintext_content" aria-expanded="false" aria-controls="plaintext_content">Puedo almacenar mis secuencias usando bloc de notas?</button></h2>
+          <div id="plaintext_content" class="accordion-collapse collapse" aria-labelledby="plaintext" data-bs-parent="#storage_accordion">
+            <div class="accordion-body fs-3">
+              Si.  Los editores de texto como Atom, Sublime, Visual Studio, mantienen intactas nuestras secuencias, por lo que son los programas de eleccion.
+              <div class="list-group">
+                <a class="list-group-item list-group-item-success fs-4" href="https://atom.io/"                    target="_blank">Atom</a>
+                <a class="list-group-item list-group-item-warning fs-4" href="https://www.sublimetext.com/"        target="_blank">Sublime</a>
+                <a class="list-group-item list-group-item-primary fs-4" href="https://visualstudio.microsoft.com/" target="_blank">Visual Studio</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card mb-3" id="repos">
+    <div class="card-header bg-danger text-white fs-2 text-center">Qué información tenemos disponible?</div>
+    <div class="card-body">
+      <object name="central_dogma" id="central_dogma" data="dogma_dbs.svg" type="image/svg+xml" style="min-width: 80%; max-width: 100%; width: 80%" ></object>
+    </div>
+    <div class="card-footer">
+      <p class="fs-3">El uso de estas bases de datos es gratuito, y la búsqueda de secuencias es relativamente sencillo ya que los portales web de dichas bases de datos nos permiten realizar nuestra búsqueda a traves de delimitadores.</p>
+    </div>
+  </div>
+  <div class="card mb-3" id="nt_dbs">
+    <div class="card-header bg-primary text-white fs-3 text-center" name="dbs" id="dbs">Bases de datos de DNA</div>
+    <div class="accordion accordion-flush" id="database_accordion">
+      <div class="accordion-item">
+        <div class="accordion-header" id="nucleotide">
+          <button class="accordion-button collapsed fs-4"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#nucleotide_content"
+                  aria-expanded="false"
+                  aria-controls="nucleotide_content">Nucleotide Core
+          </button>
+        </div>
+        <div id="nucleotide_content" class="accordion-collapse collapse" aria-labelledby="nucleotide" data-bs-parent="#database_accordion">
+          <div class="accordion-body fs-4">
+            The Nucleotide database is a collection of sequences from several sources, including GenBank, RefSeq, TPA and PDB. Genome, gene and transcript sequence data provide the foundation for biomedical research and discovery (<a href="https://www.ncbi.nlm.nih.gov/nuccore" target="_blank">link</a>)
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <div class="accordion-header" id="ena">
+          <button class="accordion-button collapsed fs-4"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#ena_content"
+                  aria-expanded="false"
+                  aria-controls="ena_content">European Nucleotide Archive
+          </button>
+        </div>
+        <div id="ena_content" class="accordion-collapse collapse" aria-labelledby="ena" data-bs-parent="#database_accordion">
+          <div class="accordion-body fs-4">
+            The European Nucleotide Archive provides a comprehensive record of the world's nucleotide sequencing information, covering raw sequencing data, sequence assembly information and functional annotation (<a href="https://www.ebi.ac.uk/ena" target="_blank">link</a>)
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <div class="accordion-header" id="genome">
+          <button class="accordion-button collapsed fs-4"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#genome_content"
+                  aria-expanded="false"
+                  aria-controls="genome_content">Genome
+          </button>
+        </div>
+        <div id="genome_content" class="accordion-collapse collapse" aria-labelledby="genome" data-bs-parent="#database_accordion">
+          <div class="accordion-body fs-4">
+            This resource organizes information on genomes including sequences, maps, chromosomes, assemblies, and annotations (<a href="https://www.ncbi.nlm.nih.gov/genome" target="_blank">link</a>)
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <div class="accordion-header" id="ensembl">
+          <button class="accordion-button collapsed fs-4"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#ensembl_content"
+                  aria-expanded="false"
+                  aria-controls="ensembl_content">EnsEMBL
+          </button>
+        </div>
+        <div id="ensembl_content" class="accordion-collapse collapse" aria-labelledby="ensembl" data-bs-parent="#database_accordion">
+          <div class="accordion-body fs-4">
+            EnsEMBL is a genome browser for vertebrate genomes that supports research in comparative genomics, evolution, sequence variation and transcriptional regulation. Ensembl annotate genes, computes multiple alignments, predicts regulatory function and collects disease data. Ensembl tools include BLAST, BLAT, BioMart and the Variant Effect Predictor (VEP) for all supported species (<a href="http://www.ensembl.org/index.html" target="_blank">link</a>)
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <div class="accordion-header" id="sra">
+          <button class="accordion-button collapsed fs-4"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#sra_content"
+                  aria-expanded="false"
+                  aria-controls="sra_content">Sequence Read Archive
+          </button>
+        </div>
+        <div id="sra_content" class="accordion-collapse collapse" aria-labelledby="sra" data-bs-parent="#database_accordion">
+          <div class="accordion-body fs-4">
+            Sequence Read Archive makes biological sequence data available to the research community to enhance reproducibility and allow for new discoveries by comparing data sets. The SRA stores raw sequencing data and alignment information from high-throughput sequencing platforms, including Roche 454 GS System®, Illumina Genome Analyzer®, Applied Biosystems SOLiD System®, Helicos Heliscope®, Complete Genomics®, and Pacific Biosciences SMRT® (<a href="https://www.ncbi.nlm.nih.gov/sra" target="_blank">link</a>)
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+<script>
+function show_format(format) {
+  var show_format_window;
+  var window_attrs   = "menubar=no,location=yes,resizable=no,scrollbars=yes,status=yes,width=750,height=800";
+  show_format_window = window.open("format_example.php?format="+format, "Ejemplo de formato", window_attrs);
+  }
+</script>
+</html>

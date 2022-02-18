@@ -1,0 +1,65 @@
+ID   KP255413; SV 1; linear; unassigned DNA; STD; MAMPRI; 446 BP.
+XX
+AC   KP255413;
+XX
+DT   04-MAY-2015 (Rel. <null>, Created)
+DT   04-MAY-2015 (Rel. <null>, Last updated, Version 1)
+XX
+DE   Homo sapiens isolate TWH87101 truncated breast and ovarian cancer
+DE   susceptibility protein 2 (BRCA2) gene, exon 25 and partial cds.
+XX
+KW   .
+XX
+OS   Homo sapiens (human)
+XX
+RN   [1]
+RP   1-446
+RT   ;
+XX
+RN   [2]
+RP   1-446
+RT   ;
+XX
+XX
+FH   Key             Location/Qualifiers
+FH
+FT   source          1..446
+FT                   /organism="Homo sapiens"
+FT                   /mol_type="genomic DNA"
+FT                   /isolate="TWH87101"
+FT                   /db_xref="taxon:9606"
+FT                   /chromosome="13"
+FT                   /country="Hong Kong"
+FT   gene            1..446
+FT                   /gene="BRCA2"
+FT   mRNA            129..372
+FT                   /gene="BRCA2"
+FT                   /product="truncated breast and ovarian cancer
+FT                   susceptibility protein 2"
+FT   exon            129..372
+FT                   /gene="BRCA2"
+FT                   /number=25
+FT   CDS             <129..358
+FT                   /gene="BRCA2"
+FT                   /note="mutation results in early stop codon"
+FT                   /codon_start=3
+FT                   /product="truncated breast and ovarian cancer
+FT                   susceptibility protein 2"
+FT                   /protein_id="AKE50591.1"
+FT                   /db_xref="GI:815932513"
+FT                   /translation="LAPFVYLSDECYNLLAIKFWIDLNEDIIKPHMLIAASNLQWRPES
+FT                   KSAFLLYLLEIFLCFLLVQKRATFKRHSTK"
+FT   variation       272^273
+FT                   /gene="BRCA2"
+FT                   /replace="g"
+XX
+SQ   Sequence 446 BP; 131 A; 85 C; 66 G; 164 T; 0 other;
+     ctattttgat ttgcttttat tattagcata taccaaaata aataggcata ttagagtttc        60
+     ctttcttgca tcttaaaatt catctaacac atctataata acattctttt cttttttttc       120
+     cattctagga cttgcccctt tcgtctattt gtcagacgaa tgttacaatt tactggcaat       180
+     aaagttttgg atagacctta atgaggacat tattaagcct catatgttaa ttgctgcaag       240
+     caacctccag tggcgaccag aatccaaatc agccttctta ctttatttgc tggagatttt       300
+     tctgtgtttt ctgctagtcc aaaagagggc cactttcaag agacattcaa caaaatgaaa       360
+     aatactgttg aggtaaggtt acttttcagc atcaccacac attttggtat ttttctattt       420
+     tgacagtcca gtatcaagga aatagc                                            446
+//

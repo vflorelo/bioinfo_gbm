@@ -1,0 +1,10 @@
+##sequence-region KP255413.1 1 446
+##species https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=9606
+KP255413.1	Genbank	region	1	446	.	+	.	ID=KP255413.1:1..446;Dbxref=taxon:9606;Name=13;chromosome=13;country=Hong Kong;gbkey=Src;genome=genomic;isolate=TWH87101;mol_type=genomic DNA
+KP255413.1	Genbank	gene	1	446	.	+	.	ID=gene-BRCA2;Name=BRCA2;gbkey=Gene;gene=BRCA2;gene_biotype=protein_coding
+KP255413.1	Genbank	mRNA	129	372	.	+	.	ID=rna-BRCA2;Parent=gene-BRCA2;gbkey=mRNA;gene=BRCA2;product=truncated breast and ovarian cancer susceptibility protein 2
+KP255413.1	Genbank	exon	129	372	.	+	.	ID=exon-BRCA2-1;Parent=rna-BRCA2;gbkey=mRNA;gene=BRCA2;product=truncated breast and ovarian cancer susceptibility protein 2
+KP255413.1	Genbank	CDS	129	358	.	+	2	ID=cds-AKE50591.1;Parent=rna-BRCA2;Dbxref=NCBI_GP:AKE50591.1;Name=AKE50591.1;Note=mutation results in early stop codon;gbkey=CDS;gene=BRCA2;partial=true;product=truncated breast and ovarian cancer susceptibility protein 2;protein_id=AKE50591.1;start_range=.,129
+KP255413.1	Genbank	exon	129	372	.	+	.	ID=id-BRCA2-25;Parent=gene-BRCA2;exon_number=25;gbkey=exon;gene=BRCA2;number=25
+KP255413.1	Genbank	sequence_alteration	272	272	.	+	.	ID=id-BRCA2;gbkey=variation;gene=BRCA2;replace=g
+

@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="js/jquery-3.6.0.min.js" ></script>
+  <script src="js/bootstrap.min.js" ></script>
+  <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
+  <link rel="stylesheet" href="css/bootstrap-icons.css  " type="text/css" />
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <title>.:Departamento de Genética y Biología Molecular:. .:Bioinformática 2022:.</title>
+</head>
+<body>
+<div class="col-8 offset-2">
+  <div class="card mb-3" id="alignments">
+    <div class="card-header bg-danger text-white fs-2 text-center">Alineamiento de secuencias</div>
+    <div class="card-body">
+      <p class="fs-3">Un alineamiento de secuencias en bioinformática es una forma de representar y comparar dos o más secuencias o cadenas de ADN, ARN, o estructuras primarias proteicas para resaltar sus zonas de similitud, que podrían indicar relaciones funcionales o evolutivas entre los genes o proteínas consultados. Las secuencias alineadas se escriben con las letras (representando aminoácidos o nucleótidos) en filas de una matriz en las que, si es necesario, se insertan espacios para que las zonas con idéntica o similar estructura se alineen <a href="https://es.wikipedia.org/wiki/Alineamiento_de_secuencias" target="_blank">link</a></p>
+      <div class="btn-group form-control">
+        <a class="btn btn-primary fs-4"   href="https://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastn&PAGE_TYPE=BlastSearch&LINK_LOC=blasthome" target="_blank">BLAST</a>
+        <a class="btn btn-info fs-4"   href="https://www.ebi.ac.uk/Tools/msa/clustalo/" target="_blank">Clustal</a>
+        <a class="btn btn-warning fs-4"   href="https://www.ebi.ac.uk/Tools/msa/muscle/" target="_blank">Muscle</a>
+        <a class="btn btn-secondary fs-4" href="https://www.ebi.ac.uk/Tools/msa/tcoffee/" target="_blank">T-Coffee</a>
+      </div>
+    </div>
+    <div class="card-footer">
+      <div class="row">
+        <div class="col-6 fs-5">Selecciona una secuencia para alineamiento local</div>
+        <div class="col-3 fs-5">
+          <select class="form-select fs-5" name="local_alignment" id="local_alignment" onchange="get_sequence(this.id,this.value)">
+            <option value=""></option>
+            <option value="l_align_01.fasta">Archivo 1</option>
+            <option value="l_align_02.fasta">Archivo 2</option>
+            <option value="l_align_03.fasta">Archivo 3</option>
+            <option value="l_align_04.fasta">Archivo 4</option>
+            <option value="l_align_05.fasta">Archivo 5</option>
+            <option value="l_align_06.fasta">Archivo 6</option>
+            <option value="l_align_07.fasta">Archivo 7</option>
+            <option value="l_align_08.fasta">Archivo 8</option>
+            <option value="l_align_09.fasta">Archivo 9</option>
+            <option value="l_align_10.fasta">Archivo 10</option>
+          </select>
+        </div>
+        <div class="col-3" name="local_alignment_download" id="local_alignment_download"></div>
+      </div>
+      <div class="row">
+        <div class="col-6 fs-5">Selecciona tus secuencias para alineamiento global</div>
+        <div class="col-3 fs-5">
+          <select class="form-select fs-5" name="global_alignment" id="global_alignment" onchange="get_sequence(this.id,this.value)">
+            <option value=""></option>
+            <option value="g_align_01.fasta">Archivo 1</option>
+            <option value="g_align_02.fasta">Archivo 2</option>
+            <option value="g_align_03.fasta">Archivo 3</option>
+            <option value="g_align_04.fasta">Archivo 4</option>
+            <option value="g_align_05.fasta">Archivo 5</option>
+            <option value="g_align_06.fasta">Archivo 6</option>
+            <option value="g_align_07.fasta">Archivo 7</option>
+            <option value="g_align_08.fasta">Archivo 8</option>
+            <option value="g_align_09.fasta">Archivo 9</option>
+            <option value="g_align_10.fasta">Archivo 10</option>
+          </select>
+        </div>
+        <div class="col-3" name="global_alignment_download" id="global_alignment_download"></div>
+      </div>
+    </div>
+  </div>
+  <div class="card mb-3" id="handling">
+    <div class="card-header bg-success text-white fs-2 text-center">Manejo de secuencias</div>
+    <div class="card-body">
+      <p class="fs-3">Una parte importante de bioinformática consiste en convertir secuencias entre un formato y otro. Algunos programas requieren que las secuencias estén en formato fasta, o en formato clustal o en formato nexus...</p>
+      <p class="fs-3">Para realizar esta tarea emplearemos las herramientas <a href="https://www.ebi.ac.uk/Tools/sfc/emboss_seqret/" target="_blank">seqret</a> y <a href="https://www.ebi.ac.uk/Tools/st/emboss_transeq/" target="_blank">transeq</a> de la paquetería <a href="https://www.ebi.ac.uk/Tools/emboss/" target="_blank">EMBOSS</a></p>
+    </div>
+    <div class="card-footer">
+      <div class="row">
+        <div class="col-6 fs-5">Selecciona una secuencia para edición</div>
+        <div class="col-3 fs-5">
+          <select name="seq_editing" id="seq_editing" onchange="get_sequence(this.id,this.value)" class="form-select fs-5">
+            <option value=""></option>
+            <option value="seq_edit_01.fasta">Archivo 1</option>
+            <option value="seq_edit_02.fasta">Archivo 2</option>
+            <option value="seq_edit_03.fasta">Archivo 3</option>
+            <option value="seq_edit_04.fasta">Archivo 4</option>
+            <option value="seq_edit_05.fasta">Archivo 5</option>
+            <option value="seq_edit_06.fasta">Archivo 6</option>
+            <option value="seq_edit_07.fasta">Archivo 7</option>
+            <option value="seq_edit_08.fasta">Archivo 8</option>
+            <option value="seq_edit_09.fasta">Archivo 9</option>
+            <option value="seq_edit_10.fasta">Archivo 10</option>
+          </select>
+        </div>
+        <div class="col-3" name="seq_editing_download" id="seq_editing_download"></div>
+      </div>
+    </div>
+  </div>
+  <div class="card mb-3" id="promoters">
+    <div class="card-header bg-warning text-white fs-2 text-center">Búsqueda de promotores y análisis de regiones reguladoras</div>
+    <div class="card-body">
+      <p class="fs-3">In past decades, prediction of genes in DNA sequences has attracted the attention of many researchers but due to its complex structure it is extremely intricate to correctly locate its position.</p>
+      <p class="fs-3">A large number of regulatory regions are present in DNA that helps in transcription of a gene. Promoter is one such region and to find its location is a challenging problem.</p>
+      <p class="fs-3">Various computational methods for promoter prediction have been developed over the past few years <a href="https://www.ncbi.nlm.nih.gov/pubmed/26158565" target="_blank">link</a></p>
+      <div class="btn-group form-control">
+        <a class="btn btn-primary fs-4" href="http://meme-suite.org/tools/meme" target="_blank">MEME</a>
+        <a class="btn btn-info fs-4" href="https://www.ensembl.org/biomart/martview/1289a20a7de2aa3bb9def9435ab620d8" target="_blank">BioMart</a>
+        <a class="btn btn-warning fs-4" href="http://linux1.softberry.com/berry.phtml?topic=bprom&group=programs&subgroup=gfindb" target="_blank">Bprom</a>
+        <a class="btn btn-danger  fs-4" href="http://linux1.softberry.com/berry.phtml?topic=fprom&group=programs&subgroup=promoter" target="_blank">Fprom</a>
+      </div>
+    </div>
+    <div class="card-footer">
+      <div class="row">
+        <div class="col-6 fs-5">Selecciona una secuencia para búsqueda de promotores</div>
+        <div class="col-3 fs-5">
+          <select class="form-select fs-5" name="prom_scan" id="prom_scan" onchange="get_sequence(this.id,this.value)">
+            <option value=""></option>
+            <option value="prom_scan_01.fasta">Archivo 1</option>
+            <option value="prom_scan_02.fasta">Archivo 2</option>
+            <option value="prom_scan_03.fasta">Archivo 3</option>
+            <option value="prom_scan_04.fasta">Archivo 4</option>
+            <option value="prom_scan_05.fasta">Archivo 5</option>
+            <option value="prom_scan_06.fasta">Archivo 6</option>
+            <option value="prom_scan_07.fasta">Archivo 7</option>
+            <option value="prom_scan_08.fasta">Archivo 8</option>
+            <option value="prom_scan_09.fasta">Archivo 9</option>
+            <option value="prom_scan_10.fasta">Archivo 10</option>
+          </select>
+        </div>
+        <div class="col-3" name="prom_scan_download" id="prom_scan_download"></div>
+      </div>
+      <div class="row">
+        <div class="col-6 fs-5">Selecciona tus secuencias para búsqueda de factores de transcripción</div>
+        <div class="col-3 fs-5">
+          <select class="form-select fs-5" name="tfb_scan" id="tfb_scan" onchange="get_sequence(this.id,this.value)">
+            <option value=""></option>
+            <option value="tfb_scan_01.fasta">Archivo 1</option>
+            <option value="tfb_scan_02.fasta">Archivo 2</option>
+            <option value="tfb_scan_03.fasta">Archivo 3</option>
+            <option value="tfb_scan_04.fasta">Archivo 4</option>
+            <option value="tfb_scan_05.fasta">Archivo 5</option>
+            <option value="tfb_scan_06.fasta">Archivo 6</option>
+            <option value="tfb_scan_07.fasta">Archivo 7</option>
+            <option value="tfb_scan_08.fasta">Archivo 8</option>
+            <option value="tfb_scan_09.fasta">Archivo 9</option>
+            <option value="tfb_scan_10.fasta">Archivo 10</option>
+          </select>
+        </div>
+        <div class="col-3" name="tfb_scan_download" id="tfb_scan_download"></div>
+      </div>
+    </div>
+  </div>
+  <div class="card mb-3" id="oligos">
+    <div class="card-header bg-secondary text-white fs-2 text-center">Diseño y uso de oligonucleotidos</div>
+    <div class="card-body btn-group form-control">
+      <a class="btn btn-primary fs-4" href="https://dev.primer3plus.com/index.html" target="_blank">Primer3 Plus</a>
+      <a class="btn btn-info fs-4" href="http://primerdigital.com/tools/pcr.html" target="_blank">FastPCR</a>
+      <a class="btn btn-warning fs-4" href="http://perlprimer.sourceforge.net/download.html" target="_blank">PerlPrimer</a>
+    </div>
+    <div class="card-footer">
+      <div class="row">
+        <div class="col-6 fs-5">Selecciona una secuencia para diseño de oligos</div>
+        <div class="col-3 fs-5">
+          <select class="form-select fs-5" name="oligo_seq" id="oligo_seq" onchange="get_sequence(this.id,this.value)">
+            <option value=""></option>
+            <option value="pASK75.fasta">Archivo 1</option>
+            <option value="pBAD-HisA.fasta">Archivo 2</option>
+            <option value="pET-3arev.fasta">Archivo 3</option>
+            <option value="pETM11-SUMO3GFP.fasta">Archivo 4</option>
+            <option value="pGAT.fasta">Archivo 5</option>
+            <option value="pHAT.fasta">Archivo 6</option>
+            <option value="pMAL-P2.fasta">Archivo 7</option>
+            <option value="pProEx-HTa.fasta">Archivo 8</option>
+            <option value="pRSET-C.fasta">Archivo 9</option>
+          </select>
+        </div>
+        <div class="col-3" name="oligo_seq_download" id="oligo_seq_download"></div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+<script>
+function get_sequence(section,file_name){
+  var div_id = $("#"+section+"_download");
+  (file_name == "" )? div_id.html("") : div_id.html("<a download=\""+file_name+"\" href=\"sequences/"+file_name+"\" class=\"bi bi-cloud-arrow-down fs-5\"> Descargar</a>") ;
+  }
+</script>
+</html>

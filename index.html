@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="js/jquery-3.6.0.min.js" ></script>
+  <script src="js/bootstrap.min.js" ></script>
+  <script src="js/gbm.js" ></script>
+  <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
+  <link rel="stylesheet" href="css/bootstrap-icons.css  " type="text/css" />
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <title>.:Departamento de Genética y Biología Molecular:. .:Bioinformática 2022:.</title>
+  <style>
+    #input_area       {position: absolute; left:0  ; top:0 ; z-index: 1}
+    #show_hide_button {position: absolute; right:0 ; top:0 ; z-index: 500}
+  </style>
+</head>
+<body onload="resize_divs();change_content('atg_00');">
+<div id="show_hide_button" class="btn btn-success bi bi-arrow-up-square-fill" type="button" data-bs-toggle="collapse" data-bs-target="#input_area" aria-expanded="false" aria-controls="input_area" onclick="toggle_up_down('up')"></div>
+<div class="col-12 collapse show" id="input_area">
+  <div class="btn-group" role="group">
+    <button type="button" id="atg_00"   class="btn btn-primary"   title="Bienvenido a la plataforma ATG-Labs"            onclick="change_content(this.id)">ATG-Labs</button>
+    <button type="button" id="intro_00" class="btn btn-secondary" title="Aspectos generales del curso de bioinformática" onclick="change_content(this.id)">Introducción</button>
+    <button type="button" id="intro_01" class="btn btn-secondary" title="Formatos para el manejo de secuencias"          onclick="change_content(this.id)">Formatos</button>
+    <button type="button" id="intro_02" class="btn btn-secondary" title="FAQs acerca del manejo de secuencias"           onclick="change_content(this.id)">Almacenamiento</button>
+    <button type="button" id="intro_03" class="btn btn-secondary" title="Bases de datos biológicos"                      onclick="change_content(this.id)">Datos disponibles</button>
+    <button type="button" id="intro_04" class="btn btn-secondary" title="Bases de datos de nucleótidos"                  onclick="change_content(this.id)">Bases de datos</button>
+    <button type="button" id="dna_00"   class="btn btn-secondary" title="Alineamientos y búsqueda de homología"          onclick="change_content(this.id)">Alineamientos</button>
+    <button type="button" id="dna_01"   class="btn btn-secondary" title="Manejo de secuencias, formatos y traducción"    onclick="change_content(this.id)">Manejo de secuencias</button>
+    <button type="button" id="dna_02"   class="btn btn-secondary" title="Búsqueda de promotores y regiones reguladoras"  onclick="change_content(this.id)">Promotores</button>
+    <button type="button" id="dna_03"   class="btn btn-secondary" title="Diseño y uso de oligonucleotidos"               onclick="change_content(this.id)">Oligos</button>
+    <button type="button" id="dna_04"   class="btn btn-secondary" title="Búsqueda de sitios de restricción"              onclick="change_content(this.id)">Restricción</button>
+    <button type="button" id="dna_05"   class="btn btn-secondary" title="Ejercicios para evaluación"                     onclick="change_content(this.id)">Evaluación</button>
+  </div>
+</div>
+<iframe id="contents"></iframe>
+</body>
+<script>
+function resize_divs(){
+  var body_height = $(window).height() ;
+  var body_width  = $(window).width() ;
+  $("#contents").css({"height":body_height,"width":body_width,"position":"fixed","top":0,"left":0});
+  }
+function toggle_up_down(direction){
+  if(direction == "up"){
+    $("#show_hide_button").attr("onclick","toggle_up_down('down')")
+    $("#show_hide_button").removeClass("bi-arrow-up-square-fill").addClass("bi-arrow-down-square-fill")
+    }
+  else{
+    $("#show_hide_button").attr("onclick","toggle_up_down('up')")
+    $("#show_hide_button").removeClass("bi-arrow-down-square-fill").addClass("bi-arrow-up-square-fill")
+    }
+  }
+</script>
+</html>
